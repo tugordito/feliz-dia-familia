@@ -1,57 +1,58 @@
-/* Fondo con degradado azul claro */
+/* Fondo azul claro con texto neón */
 body {
-    background: linear-gradient(to bottom, #b3e0ff, #e6f7ff);
-    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #cce7ff, #b3d9ff); /* Azul degradado */
     text-align: center;
+    font-family: Arial, sans-serif;
     overflow: hidden;
 }
 
-/* Texto en neón */
-.neon-text {
-    font-size: 3rem;
-    color: white;
-    text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff1493, 0 0 30px #ff69b4;
+/* Título en neón */
+.titulo {
+    font-size: 2.5rem;
+    color: #ff4d94;
+    text-shadow: 0 0 10px #ff4d94, 0 0 20px #ff99cc;
     margin-top: 20px;
 }
 
-/* Caja de login centrada */
-.login-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+/* Formulario centrado */
+.contenedor {
     background: rgba(255, 255, 255, 0.9);
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(255, 105, 180, 0.7);
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    margin: 10% auto; /* Centrado vertical y horizontal */
 }
 
-/* Estilos de los inputs */
-input, select {
+/* Input y botón */
+input, button {
     display: block;
-    width: 80%;
-    margin: 10px auto;
+    width: 100%;
     padding: 10px;
-    border: 2px solid #ff69b4;
-    border-radius: 5px;
-}
-
-/* Botón de ingreso */
-button {
-    background: #ff69b4;
-    color: white;
-    padding: 10px 15px;
+    margin: 10px 0;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+input {
+    background: #fff;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    background: #ff4d94;
+    color: white;
     cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-/* Botón hover */
 button:hover {
-    background: #ff1493;
+    background: #ff1a75;
 }
 
-/* Ventana emergente */
+/* Ventana emergente de mensajes */
 .popup {
     position: fixed;
     top: 50%;
@@ -59,21 +60,45 @@ button:hover {
     transform: translate(-50%, -50%);
     background: white;
     padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 20, 147, 0.7);
-    z-index: 1000;
+    z-index: 10;
     text-align: center;
-    font-size: 1.2rem;
 }
 
-/* Animación de rosas cayendo */
+/* Botón de cerrar mensaje */
+.popup button {
+    margin-top: 10px;
+    background: #ff4d94;
+}
+
+/* 🌹 Animación de rosas cayendo */
 .rosa {
-    position: absolute;
+    position: fixed;
+    top: -50px;
     font-size: 2rem;
     animation: caer 4s linear infinite;
 }
 
+/* Animación para que las rosas caigan lentamente */
 @keyframes caer {
-    from { transform: translateY(-10vh) rotate(0); opacity: 1; }
-    to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    from { transform: translateY(-50px) rotate(0); }
+    to { transform: translateY(100vh) rotate(360deg); }
 }
+
+/* Responsive para celulares */
+@media screen and (max-width: 600px) {
+    .titulo {
+        font-size: 2rem;
+    }
+    .contenedor {
+        width: 90%;
+    }
+    .popup {
+        width: 95%;
+        font-size: 0.9rem;
+    }
+}
+
